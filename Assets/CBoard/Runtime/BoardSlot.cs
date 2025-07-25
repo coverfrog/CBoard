@@ -1,56 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Cf.CBoard
 {
-    public enum BordSlotType
-    {
-        PassBy,
-        StartBy,
-    }
-    
     public class BoardSlot : MonoBehaviour
     {
-        [Header("Bool")]
-        [SerializeField] private bool isInUnit;
-        
-        public bool IsInUnit => isInUnit;
-        
         [Header("Slot")]
-        [SerializeField] private BoardSlot passBySlot;
-        [SerializeField] private BoardSlot startBySlot;
+        [SerializeField] private BoardSlot nextSlot;
+
+        [Header("Event")]
+        public UnityEvent onPassEvent;
+        public UnityEvent onStopEvent;
+
+        private IEnumerator _coMove;
         
-        public BoardSlot PassBySlot => passBySlot;
-        
-        public BoardSlot StartBySlot => startBySlot;
-
-        public void SetSlot(BordSlotType slotType, BoardSlot boardSlot)
+        public BoardSlot GetMoveNext(ref int count, ref List<BoardSlot> slotList)
         {
-            if (slotType == BordSlotType.PassBy)
-            {
-                passBySlot = boardSlot;
-            }
-
-            else
-            {
-                startBySlot = boardSlot;
-            }
-        }
-
-        public void SetSlot(BoardSlot boardSlot)
-        {
-            passBySlot = startBySlot = boardSlot;
-        }
-
-        public void SetIsInUnit(bool value)
-        {
-            isInUnit = value;
-        }
-
-        public bool GetNext(out BoardSlot  nextSlot)
-        {
-            nextSlot = isInUnit ? startBySlot : passBySlot;
+            slotList.Add(this);
             
-            return nextSlot != null;;
+            if (!nextSlot)
+            {
+                return this;
+            }
+            
+            --count;
+
+            if (count < 0)
+            {
+                onStopEvent?.Invoke();
+
+                return this;
+            }
+            
+            onPassEvent?.Invoke();
+            
+            return nextSlot.GetMoveNext(ref count, ref slotList);
         }
     }
 }
