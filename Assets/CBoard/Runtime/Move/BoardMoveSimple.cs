@@ -2,7 +2,7 @@
 
 namespace Cf.CBoard
 {
-    [CreateAssetMenu(menuName = "Cf/CBoard/Simple", fileName = "Simple")]
+    [CreateAssetMenu(menuName = "Cf/CBoard/Move/Simple", fileName = "Simple")]
     public sealed class BoardMoveSimple : BoardMove
     {
         public override void OnMoving(BoardHandler handler, Vector3 startPos, Vector3 endPos, float per)

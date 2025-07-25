@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cf.CBoard.Spread;
 using UnityEngine;
 
 namespace Cf.CBoard
 {
     public class BoardHandler : MonoBehaviour
     {
-        [Header("Slot")]
+        [Header("Slot")] 
+        [SerializeField] private Transform slotParent;
         [SerializeField] private BoardSlot slotCurrent;
         [SerializeField] private List<BoardSlot> slotMoveList;
     
+        public Transform SlotParent => slotParent;
+        
         [Header("Unit")]
         [SerializeField] private Transform unitTr;
         [SerializeField] private Animator unitAnimator;
@@ -21,11 +25,19 @@ namespace Cf.CBoard
         [SerializeField] private BoardMove move;
         [SerializeField] private int moveCount = 1;
         [SerializeField] private float moveDuration = 0.2f;
+
+        [Header("Spread")]
+        [SerializeField] private BoardSpread spread;
+        [SerializeField] private float circleRadius = 4.0f;
+        
+        public float CircleRadius => circleRadius;
         
         private IEnumerator _coMove;
     
         private void Update()
         {
+            Spread();
+            
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Move();
@@ -73,6 +85,20 @@ namespace Cf.CBoard
             }
         }
 
+        #region Spread
+
+        [ContextMenu("Spread")]
+        public void Spread()
+        {
+            spread.Spread(this);
+
+#if UNITY_EDITOR
+            UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
+#endif
+        }
+
+        #endregion
+        
         #region Move
 
         public void Move()
