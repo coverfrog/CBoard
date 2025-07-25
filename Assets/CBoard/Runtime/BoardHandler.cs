@@ -7,19 +7,20 @@ namespace Cf.CBoard
     public class BoardHandler : MonoBehaviour
     {
         [Header("Slot")]
-        [SerializeField] protected BoardSlot slotCurrent;
-        [SerializeField] protected List<BoardSlot> slotMoveList;
+        [SerializeField] private BoardSlot slotCurrent;
+        [SerializeField] private List<BoardSlot> slotMoveList;
     
         [Header("Unit")]
-        [SerializeField] protected Transform unitTr;
-        [SerializeField] protected Animator unitAnimator;
+        [SerializeField] private Transform unitTr;
+        [SerializeField] private Animator unitAnimator;
 
         public Transform UnitTr => unitTr;
         public Animator UnitAnimator => unitAnimator;
         
         [Header("Move")]
-        [SerializeField] protected BoardMove move;
-        [SerializeField] protected int moveCount;
+        [SerializeField] private BoardMove move;
+        [SerializeField] private int moveCount = 1;
+        [SerializeField] private float moveDuration = 0.2f;
         
         private IEnumerator _coMove;
     
@@ -92,8 +93,8 @@ namespace Cf.CBoard
 
         private IEnumerator CoMove()
         {
-            const float dur = 1.0f;
-            
+            float dur = moveDuration;
+
             for (int i = 0; i < slotMoveList.Count - 1; i++)
             {
                 yield return CoMove(slotMoveList[i].transform.position, slotMoveList[i + 1].transform.position, dur);
