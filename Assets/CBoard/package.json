@@ -1,0 +1,15 @@
+{
+  "name": "com.cf.board",
+  "version": "1.0.0",
+  "displayName": "com.cf.board",
+  "description": "com.cf.board",
+  "unity": null,
+  "unityRelease": null,
+  "dependencies": {},
+  "keywords": [],
+  "author": {
+    "name": null,
+    "email": null,
+    "url": null
+  }
+}

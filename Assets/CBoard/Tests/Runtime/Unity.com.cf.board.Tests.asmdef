@@ -1,0 +1,16 @@
+{
+  "name": "com.cf.board.Tests",
+  "rootNamespace": "Cf.CBoard.Tests",
+  "references": [
+    "com.cf.board"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,19 @@
+{
+  "name": "com.cf.board.Editor.Tests",
+  "rootNamespace": "Cf.CBoard.Editor.Tests",
+  "references": [
+    "com.cf.board",
+    "com.cf.board.Tests"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
