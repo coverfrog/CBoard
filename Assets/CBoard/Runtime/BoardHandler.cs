@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Cf.CBoard
 {
-    public abstract class BoardHandler : MonoBehaviour
+    public class BoardHandler : MonoBehaviour
     {
         [Header("Slot")]
         [SerializeField] protected BoardSlot slotCurrent;
@@ -14,7 +14,11 @@ namespace Cf.CBoard
         [SerializeField] protected Transform unitTr;
         [SerializeField] protected Animator unitAnimator;
 
+        public Transform UnitTr => unitTr;
+        public Animator UnitAnimator => unitAnimator;
+        
         [Header("Move")]
+        [SerializeField] protected BoardMove move;
         [SerializeField] protected int moveCount;
         
         private IEnumerator _coMove;
@@ -68,7 +72,9 @@ namespace Cf.CBoard
             }
         }
 
-        private void Move()
+        #region Move
+
+        public void Move()
         {
             Move(moveCount);
         }
@@ -110,16 +116,14 @@ namespace Cf.CBoard
             {
                 float per = t / dur;
 
-                OnMoving(startPos, endPos, per);
+                move.OnMoving(this, startPos, endPos, per);
             
                 yield return null;
             }
 
-            OnMoveEnd(endPos);
+            move.OnMoveEnd(this, endPos);
         }
 
-        protected abstract void OnMoving(Vector3 startPos, Vector3 endPos, float per);
-
-        protected abstract void OnMoveEnd(Vector3 endPos);
+        #endregion
     }
 }

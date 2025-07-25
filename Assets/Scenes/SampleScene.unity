@@ -1077,14 +1077,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 497207644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30699067f9846bda64440b866ab3edc, type: 3}
+  m_Script: {fileID: 11500000, guid: f2c479fcf7ac3f942b05346e2d38bdd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotCurrent: {fileID: 976064558}
   slotMoveList: []
   unitTr: {fileID: 1143634197}
   unitAnimator: {fileID: 0}
-  moveCount: 3
+  move: {fileID: 11400000, guid: 7fb52545ef728f7448dfd5d4892d0b1f, type: 2}
+  moveCount: 0
 --- !u!1 &741384015
 GameObject:
   m_ObjectHideFlags: 0
