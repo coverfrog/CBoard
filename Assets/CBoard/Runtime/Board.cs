@@ -39,10 +39,10 @@ namespace Cf.CBoard
                 return;
             }
             
-            Init();
+            Init(null);
         }
 
-        public void Init()
+        public void Init(Action onComplete)
         {
             if (boardSpread == null)
             {
@@ -53,7 +53,14 @@ namespace Cf.CBoard
             }
 
             InitPositionList();
-            InitPrefab();
+
+            if (!isInitObject)
+            {
+                onComplete?.Invoke();
+                return;
+            }
+            
+            InitPrefab(onComplete);
         }
 
         private void InitPositionList()
@@ -61,7 +68,7 @@ namespace Cf.CBoard
             positionList = boardSpread.Create().Spread(transform, true);
         }
         
-        private void InitPrefab()
+        private void InitPrefab(Action onComplete)
         {
             if (!isInitObject)
             {
@@ -87,7 +94,7 @@ namespace Cf.CBoard
           
                 if (op.Result.TryGetComponent(out slotPrefab))
                 {
-                    InitObjects();
+                    InitObjects(onComplete);
                 }
 
                 else
@@ -99,7 +106,7 @@ namespace Cf.CBoard
             };
         }
 
-        private void InitObjects()
+        private void InitObjects(Action onComplete)
         {
             if (!slotPrefab)
             {
@@ -128,6 +135,8 @@ namespace Cf.CBoard
                 
                 slot0.SetNextSlot(slot1);
             }
+            
+            onComplete?.Invoke();
         }
         
         private void OnDrawGizmos()
