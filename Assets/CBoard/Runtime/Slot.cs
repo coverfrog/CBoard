@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cf.CBoard.Tests
+namespace Cf.CBoard
 {
     public class Slot : MonoBehaviour
     {

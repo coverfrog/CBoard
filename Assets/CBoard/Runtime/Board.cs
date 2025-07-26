@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Cf.CBoard.Tests
+namespace Cf.CBoard
 {
     public class Board : MonoBehaviour
     {
