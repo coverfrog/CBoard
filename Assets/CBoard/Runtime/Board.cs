@@ -27,9 +27,11 @@ namespace Cf.CBoard
         [Header("Debug View")]
         [SerializeField] private Slot slotPrefab;
         [SerializeField] private List<Slot> slotList = new List<Slot>();
-        
-        private List<Vector3> _positionList = new List<Vector3>();
+        [SerializeField] private List<Vector3> positionList = new List<Vector3>();
 
+        public IReadOnlyList<Slot> GetSlotList => slotList;
+        public IReadOnlyList<Vector3> GetPositionList => positionList;
+        
         private void Start()
         {
             if (!isInitStart)
@@ -56,7 +58,7 @@ namespace Cf.CBoard
 
         private void InitPositionList()
         {
-            _positionList = boardSpread.Create().Spread(transform, true);
+            positionList = boardSpread.Create().Spread(transform, true);
         }
         
         private void InitPrefab()
@@ -109,11 +111,11 @@ namespace Cf.CBoard
             
             slotList.Clear();
             
-            int count = _positionList.Count;
+            int count = positionList.Count;
             
             for (int i = 0; i < count; i++)
             {
-                Slot slot = Instantiate(slotPrefab, _positionList[i], slotPrefab.transform.rotation, transform);
+                Slot slot = Instantiate(slotPrefab, positionList[i], slotPrefab.transform.rotation, transform);
                 slot.gameObject.name = $"Slot {i}";
                 
                 slotList.Add(slot);
