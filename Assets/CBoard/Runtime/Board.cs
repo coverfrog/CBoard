@@ -134,6 +134,11 @@ namespace Cf.CBoard
             {
                 return;
             }
+
+            if (!boardSpread)
+            {
+                return;
+            }
             
             var list = boardSpread.Create().Spread(transform, false);
             
