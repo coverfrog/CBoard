@@ -34,70 +34,19 @@ namespace Cf.CBoard
         
         private IEnumerator _coMove;
     
-        private void Update()
-        {
-            Spread();
-            
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Move();
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-            
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha7))
-            {
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha8))
-            {
-            
-            }
-        
-            if (Input.GetKeyDown(KeyCode.Alpha9))
-            {
-            
-            }
-        }
+        // #region Spread
 
-        #region Spread
-
-        [ContextMenu("Spread")]
-        public void Spread()
-        {
-            spread.Spread(this);
-
-#if UNITY_EDITOR
-            UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
-#endif
-        }
-
-        #endregion
+//         [ContextMenu("Spread")]
+//         public void Spread()
+//         {
+//             spread.Spread(this);
+//
+// #if UNITY_EDITOR
+//             UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
+// #endif
+//         }
+//
+//         #endregion
         
         #region Move
 

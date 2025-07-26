@@ -5,7 +5,9 @@
   "description": "com.cf.board",
   "unity": null,
   "unityRelease": null,
-  "dependencies": {},
+  "dependencies": { 
+    "com.unity.addressables": "2.6.0"
+  },
   "keywords": [],
   "author": {
     "name": null,
