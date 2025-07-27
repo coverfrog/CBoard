@@ -5,11 +5,11 @@ namespace Cf.CBoard
     public class Slot : MonoBehaviour
     {
         [Header("Debug View")]
-        [SerializeField] private Slot nextSlot;
+        [SerializeField] private Slot mNextSlot;
 
         public void SetNextSlot(Slot slot)
         {
-            nextSlot = slot;
+            mNextSlot = slot;
         }
     }
 }

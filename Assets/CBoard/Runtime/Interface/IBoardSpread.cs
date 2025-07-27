@@ -5,6 +5,6 @@ namespace Cf.CBoard.Spread
 {
     public interface IBoardSpread
     {
-        List<Vector3> Spread(Transform centerTr, bool isLocal);
+        List<Vector3> Spread(Transform origin, bool isLocal);
     }
 }

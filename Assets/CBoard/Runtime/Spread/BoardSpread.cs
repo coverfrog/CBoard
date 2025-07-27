@@ -13,6 +13,6 @@ namespace Cf.CBoard.Spread
         
         public abstract IBoardSpread Create();
         
-        public abstract List<Vector3> Spread(Transform centerTr, bool isLocal);
+        public abstract List<Vector3> Spread(Transform origin, bool isLocal);
     }
 }
