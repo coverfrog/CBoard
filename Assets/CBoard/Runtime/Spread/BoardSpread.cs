@@ -11,7 +11,7 @@ namespace Cf.CBoard.Spread
             XY,
         }
         
-        public abstract IBoardSpread Create();
+        public abstract IBoardSpread Clone();
         
         public abstract List<Vector3> Spread(Transform origin, bool isLocal);
     }

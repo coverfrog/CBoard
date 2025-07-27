@@ -64,7 +64,7 @@ namespace Cf.CBoard
 
         private void InitPositionList()
         {
-            mPositionList = mBoardSpread.Create().Spread(transform, true);
+            mPositionList = mBoardSpread.Clone().Spread(transform, true);
         }
         
         private void InitPrefab(Action onComplete)
@@ -150,7 +150,7 @@ namespace Cf.CBoard
                 return;
             }
             
-            var list = mBoardSpread.Create().Spread(transform, false);
+            var list = mBoardSpread.Clone().Spread(transform, false);
             
             Gizmos.color = mGizmoColor;
             

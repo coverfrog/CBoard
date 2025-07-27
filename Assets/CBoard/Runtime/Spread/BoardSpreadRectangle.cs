@@ -24,7 +24,7 @@ namespace Cf.CBoard.Spread
 
         #endregion
         
-        public override IBoardSpread Create()
+        public override IBoardSpread Clone()
         {
             var instance = CreateInstance<BoardSpreadRectangle>();
             instance.mAxis = mAxis;
