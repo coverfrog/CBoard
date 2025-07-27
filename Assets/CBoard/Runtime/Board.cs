@@ -21,7 +21,7 @@ namespace Cf.CBoard
         [SerializeField] private AssetReference mSlotReference;
         
         [Header("Func")]
-        [SerializeField] private BoardSpread mBoardSpread;
+        [SerializeField] private BoardSpread mBoardSpreadFunc;
 
         [Header("Debug View")]
         [SerializeField] private Slot mSlotPrefab;
@@ -43,7 +43,7 @@ namespace Cf.CBoard
 
         public void Init(Action onComplete)
         {
-            if (mBoardSpread == null)
+            if (mBoardSpreadFunc == null)
             {
 #if UNITY_EDITOR
                 Debug.LogError("BoardSpread is null");
@@ -64,7 +64,7 @@ namespace Cf.CBoard
 
         private void InitPositionList()
         {
-            mPositionList = mBoardSpread.Clone().Spread(transform, true);
+            mPositionList = mBoardSpreadFunc.Clone().Spread(transform, true);
         }
         
         private void InitPrefab(Action onComplete)
@@ -145,12 +145,12 @@ namespace Cf.CBoard
                 return;
             }
 
-            if (!mBoardSpread)
+            if (!mBoardSpreadFunc)
             {
                 return;
             }
             
-            var list = mBoardSpread.Clone().Spread(transform, false);
+            var list = mBoardSpreadFunc.Clone().Spread(transform, false);
             
             Gizmos.color = mGizmoColor;
             
